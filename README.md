@@ -163,38 +163,6 @@ After running, open your web browser at: **`http://localhost:8501`**.
 
 ---
 
-## 🎓 Viva & Practical Examination Q&A (Cheat Sheet)
-
-### Q1: Why did you choose the UCI Student Performance dataset?
-> **Answer**: The UCI Student Performance dataset (Cortez and Silva, 2008) is a benchmark educational data mining dataset. It contains 395 secondary school students evaluated across 33 attributes spanning demographic backgrounds, parental education, study time, absences, social activities, and historical grades (G1, G2, G3). It offers an ideal balance of numeric and categorical features for both regression and classification.
-
-### Q2: How did you prevent Data Leakage?
-> **Answer**: Data leakage occurs when information from the test dataset influences training. We strictly prevented this by:
-> 1. Performing train-test splitting (80/20 stratified) **before** applying any transformers.
-> 2. Fitting `StandardScaler` and `OneHotEncoder` **only** on the training partition (`X_train`).
-> 3. Transforming the test partition (`X_test`) using the fitted preprocessor without calling `.fit()`.
-
-### Q3: What is the difference between Linear Regression and SGDRegressor?
-> **Answer**:
-> - **Linear Regression (OLS)** computes closed-form normal equations ($\theta = (X^T X)^{-1} X^T y$). It finds exact analytical minima but scales with $\mathcal{O}(d^3)$ computational complexity.
-> - **SGDRegressor** iteratively updates weights via Stochastic Gradient Descent using mini-batches/samples:
->   $$\theta_{t+1} = \theta_t - \eta \nabla J(\theta_t)$$
->   It requires scaled features and is highly efficient for large datasets or streaming data. In our experiments, SGD achieved an $R^2$ of **0.805** and RMSE of **2.034**.
-
-### Q4: Why does Stacking outperform individual classifiers?
-> **Answer**: Stacking (Stacked Generalization) trains diverse base learners (SVM, Decision Tree, KNN, Naive Bayes) with distinct inductive biases. Instead of taking a simple average, Stacking trains a meta-learner (Logistic Regression) on out-of-fold predictions. The meta-learner learns which classifier is reliable in specific regions of the feature space, yielding our top test accuracy of **92.41%** and F1-score of **0.889**.
-
-### Q5: How was the optimal K chosen in K-Means clustering?
-> **Answer**: We evaluated $K \in [2, 6]$ using two unsupervised metrics:
-> 1. **Silhouette Score**: Measures intra-cluster cohesion vs. inter-cluster separation (higher is better).
-> 2. **Davies-Bouldin Index**: Measures the similarity between each cluster and its most similar counterpart (lower is better).
-> $K=3$ was selected as the optimal trade-off providing the highest pedagogical interpretability into three distinct personas.
-
-### Q6: How does the Expert System function?
-> **Answer**: The Expert System is a deterministic inference engine containing categorized pedagogical production rules (`IF condition THEN recommendation`). It evaluates student attributes alongside predicted grade and risk status to prescribe actionable guidance across Academic Remediation, Attendance Monitoring, Lifestyle Optimization, and Timetable Allocation.
-
----
-
 ## 📜 License & Acknowledgments
 - Dataset source: P. Cortez and A. Silva. *Using Data Mining to Predict Secondary School Student Performance*. A. Brito and J. Teixeira Eds., Proceedings of 5th FUture BUsiness TEChnology Conference (FUBUTEC 2008) pp. 5-12, Porto, Portugal, April 2008.
 - UCI Machine Learning Repository: [https://archive.ics.uci.edu/dataset/320/student+performance](https://archive.ics.uci.edu/dataset/320/student+performance)
