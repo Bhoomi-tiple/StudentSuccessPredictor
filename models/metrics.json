@@ -1,0 +1,174 @@
+{
+    "regression_metrics": {
+        "Linear Regression": {
+            "MAE": 1.4864465967418348,
+            "MSE": 4.324401266797528,
+            "RMSE": 2.0795194797831367,
+            "R2": 0.7957205160155971
+        },
+        "Gradient Descent (SGD)": {
+            "MAE": 1.4587954260460692,
+            "MSE": 4.136197868173875,
+            "RMSE": 2.0337644573976297,
+            "R2": 0.8046110168694696
+        }
+    },
+    "classification_metrics": {
+        "SVM": {
+            "Accuracy": 0.8987341772151899,
+            "Precision": 0.9090909090909091,
+            "Recall": 0.7692307692307693,
+            "F1-Score": 0.8333333333333334,
+            "Confusion_Matrix": [
+                [
+                    51,
+                    2
+                ],
+                [
+                    6,
+                    20
+                ]
+            ],
+            "Category": "Individual"
+        },
+        "Decision Tree": {
+            "Accuracy": 0.8734177215189873,
+            "Precision": 0.7857142857142857,
+            "Recall": 0.8461538461538461,
+            "F1-Score": 0.8148148148148148,
+            "Confusion_Matrix": [
+                [
+                    47,
+                    6
+                ],
+                [
+                    4,
+                    22
+                ]
+            ],
+            "Category": "Individual"
+        },
+        "KNN": {
+            "Accuracy": 0.8227848101265823,
+            "Precision": 0.7727272727272727,
+            "Recall": 0.6538461538461539,
+            "F1-Score": 0.7083333333333334,
+            "Confusion_Matrix": [
+                [
+                    48,
+                    5
+                ],
+                [
+                    9,
+                    17
+                ]
+            ],
+            "Category": "Individual"
+        },
+        "Naive Bayes": {
+            "Accuracy": 0.8354430379746836,
+            "Precision": 0.8095238095238095,
+            "Recall": 0.6538461538461539,
+            "F1-Score": 0.723404255319149,
+            "Confusion_Matrix": [
+                [
+                    49,
+                    4
+                ],
+                [
+                    9,
+                    17
+                ]
+            ],
+            "Category": "Individual"
+        },
+        "Voting Classifier": {
+            "Accuracy": 0.8860759493670886,
+            "Precision": 0.8695652173913043,
+            "Recall": 0.7692307692307693,
+            "F1-Score": 0.8163265306122449,
+            "Confusion_Matrix": [
+                [
+                    50,
+                    3
+                ],
+                [
+                    6,
+                    20
+                ]
+            ],
+            "Category": "Ensemble"
+        },
+        "AdaBoost": {
+            "Accuracy": 0.9113924050632911,
+            "Precision": 0.88,
+            "Recall": 0.8461538461538461,
+            "F1-Score": 0.8627450980392157,
+            "Confusion_Matrix": [
+                [
+                    50,
+                    3
+                ],
+                [
+                    4,
+                    22
+                ]
+            ],
+            "Category": "Ensemble"
+        },
+        "Stacking Classifier": {
+            "Accuracy": 0.9240506329113924,
+            "Precision": 0.8571428571428571,
+            "Recall": 0.9230769230769231,
+            "F1-Score": 0.8888888888888888,
+            "Confusion_Matrix": [
+                [
+                    49,
+                    4
+                ],
+                [
+                    2,
+                    24
+                ]
+            ],
+            "Category": "Ensemble"
+        }
+    },
+    "clustering_metrics": {
+        "optimal_k": 3,
+        "silhouette_score": 0.16554903116041741,
+        "davies_bouldin_index": 1.8687894601787214,
+        "k_evaluations": {
+            "2": {
+                "k": 2,
+                "silhouette_score": 0.17987636198691967,
+                "davies_bouldin_index": 1.9976056991658884,
+                "inertia": 3538.9988970117233
+            },
+            "3": {
+                "k": 3,
+                "silhouette_score": 0.16554903116041741,
+                "davies_bouldin_index": 1.8687894601787214,
+                "inertia": 3112.113259216994
+            },
+            "4": {
+                "k": 4,
+                "silhouette_score": 0.15997348606005038,
+                "davies_bouldin_index": 1.7358328744079818,
+                "inertia": 2845.2541409312607
+            },
+            "5": {
+                "k": 5,
+                "silhouette_score": 0.16326637222543505,
+                "davies_bouldin_index": 1.596548275804509,
+                "inertia": 2672.876012524976
+            },
+            "6": {
+                "k": 6,
+                "silhouette_score": 0.12190724927537808,
+                "davies_bouldin_index": 1.8332591421433087,
+                "inertia": 2528.307876576876
+            }
+        }
+    }
+}
