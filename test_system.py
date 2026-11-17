@@ -187,6 +187,36 @@ def test_metrics_json():
     print("  [PASS] test_metrics_json")
 
 
+def test_report_downloads():
+    """Verify PDF, CSV, and TXT report generation with actual student results."""
+    from report_generator import generate_pdf_report, generate_csv_report, generate_txt_report
+    from expert_system import generate_recommendations
+
+    sample_dict = {
+        'G1': 14, 'G2': 15, 'studytime': 3, 'failures': 0, 'absences': 2,
+        'schoolsup': 'no', 'famsup': 'yes', 'paid': 'yes', 'higher': 'yes',
+        'internet': 'yes', 'Walc': 1, 'Medu': 4, 'Fedu': 4
+    }
+    preds = {
+        'predicted_g3': 14.8, 'letter_grade': 'B', 'letter_desc': 'Very Satisfactory',
+        'is_at_risk': False, 'risk_probability': 0.12, 'pred_lr': 14.6, 'pred_sgd': 15.0
+    }
+    recs = generate_recommendations(sample_dict, predicted_g3=14.8, is_at_risk=False)
+
+    pdf_bytes = generate_pdf_report(sample_dict, preds, recs)
+    assert len(pdf_bytes) > 1000, "PDF generation produced abnormally small file"
+    assert pdf_bytes[:4] == b'%PDF', "Generated file is not a valid PDF"
+
+    csv_str = generate_csv_report(sample_dict, preds, recs)
+    assert "14.8" in csv_str or "14.80" in csv_str, "CSV does not contain predicted grade"
+    assert "92.41%" in csv_str, "CSV does not contain model accuracy disclosure"
+
+    txt_str = generate_txt_report(sample_dict, preds, recs)
+    assert "Predicted Final Exam Grade" in txt_str, "TXT report missing header"
+    assert "14.8" in txt_str or "14.80" in txt_str, "TXT report missing predicted grade"
+    print("  [PASS] test_report_downloads: PDF, CSV, TXT generated and validated successfully")
+
+
 if __name__ == '__main__':
     print("=" * 65)
     print("  RUNNING SYSTEM VERIFICATION TEST SUITE")
@@ -198,6 +228,7 @@ if __name__ == '__main__':
     test_clustering_pipeline()
     test_expert_system()
     test_metrics_json()
+    test_report_downloads()
     print("=" * 65)
-    print("  ALL 6 TEST SUITES PASSED SUCCESSFULLY (100% GREEN)")
+    print("  ALL 7 TEST SUITES PASSED SUCCESSFULLY (100% GREEN)")
     print("=" * 65)
