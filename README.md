@@ -35,14 +35,13 @@ The project strictly follows ML best practices with **stratified train-test spli
 5. **Rule-Based Expert System**:
    - Pedagogical inference engine generating personalized study routines, attendance warnings, and resource allocation.
    - Generates downloadable, structured intervention reports for counselors, teachers, and parents.
-6. **Interactive SaaS-Style Streamlit Web Dashboard**:
-   - Modern 6-stage guided journey designed for seamless first-time user experience:
-     1. **Overview & Welcome**: System introduction, "How It Works" 4-step workflow, and platform KPI benchmarks.
-     2. **Enter Details & Predict Grade**: 3-tab categorized input form with one-click student presets and regression predictions.
-     3. **Academic Failure Risk**: Multi-model consensus risk evaluation across 7 distinct algorithms with failure probability gauges.
-     4. **AI Model Benchmarks**: Transparent empirical evaluation results with a plain-English metric glossary and confusion matrix explorer.
-     5. **Student Groups (Clustering)**: Unsupervised K-Means persona discovery with 2D PCA cluster visualization.
-     6. **Action Plan & Study Advice**: Rule-based expert pedagogical recommendations, weekly timetables, and downloadable reports.
+6. **Streamlined Primary Workflow & Triple Format Report Downloads**:
+   - **Primary Journey**: Home ➔ Enter Student Details ➔ Generate Student Report ➔ View Results ➔ Download Report.
+   - **Working Multi-Format Export**:
+     - 📄 **PDF**: Publication-quality official student assessment report generated via ReportLab.
+     - 📊 **CSV**: Tabular data export containing all student attributes, predictions, and recommendations.
+     - 📝 **TXT**: Human-readable text dossier.
+   - **Secondary Section (Explore ML Insights)**: Model Comparison benchmarks and K-Means Student Clustering personas kept neatly organized without interfering with the primary user flow.
 
 ---
 

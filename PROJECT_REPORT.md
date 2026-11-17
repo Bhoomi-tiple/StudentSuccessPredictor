@@ -296,15 +296,22 @@ The expert system functions as an actionable bridge between machine learning inf
 ---
 
 ## 9. STREAMLIT APPLICATION IMPLEMENTATION
-The graphical user interface was engineered using **Streamlit** to provide a production-ready decision dashboard.
+The graphical user interface was engineered using **Streamlit** to provide a production-ready, SaaS-style decision dashboard organized around a clear, intuitive primary journey:
 
-### 9.1 Module Layout:
-1. **🏠 Home & Overview**: High-level system KPI cards, architecture flow, dataset distribution histogram for $G3$, and overall risk pie chart.
-2. **📈 Student Grade Prediction**: Interactive multi-attribute input form with preset persona buttons. Predicts exact final numerical score using Linear Regression and SGDRegressor with letter grade mapping.
-3. **⚠️ Academic Risk Classification**: Evaluates student risk across all 7 classification models, displays individual and ensemble risk percentages, and presents a comparative probability bar chart.
-4. **📊 Model Comparison & Benchmarks**: Displays real test metric tables (MAE, MSE, RMSE, $R^2$, Accuracy, Precision, Recall, F1), side-by-side comparison charts, and an interactive **Confusion Matrix Heatmap Visualizer**.
-5. **🧩 Student Clustering (K-Means)**: Presents cluster validation metrics, persona cards, an interactive 2D PCA cluster scatter plot, and a "Find My Cluster" assignment tool.
-6. **💡 Expert Recommendations**: Generates a comprehensive pedagogical intervention dossier with strengths, warning flags, categorized action items, weekly schedule, and a **downloadable official report (.txt)**.
+### 9.1 Streamlined Primary User Flow:
+1. **🏠 Home & Overview**: System overview, transparent KPI benchmark cards (92.41% accuracy on 79 test students), "How It Works" 3-step guide, and a prominent **"Get Started"** call-to-action button.
+2. **📋 Student Assessment & Report**:
+   - **Enter Student Details**: 3-tab categorized input form (Academic Attainment, Demographics & Goals, Family & Lifestyle) with 1-click test presets.
+   - **Generate Student Report**: Single prominent action button executing the 7-classifier and 2-regressor pipeline.
+   - **Comprehensive Results**: Visual score trajectory, letter grade conversion, academic failure risk classification, driving factor explanation, protective strengths vs. critical warning signs, and personalized pedagogical action plan.
+   - **Triple-Format Export**: Three working download options containing actual student results:
+     - 📄 **PDF**: Formatted official report generated via ReportLab.
+     - 📊 **CSV**: Tabular assessment data containing inputs, predictions, and recommendations.
+     - 📝 **TXT**: Clean, structured text dossier.
+
+### 9.2 Secondary Section (Explore ML Insights):
+- **🔍 Model Comparison & Benchmarks**: 7-model classification comparison, regression evaluation metrics (MAE, RMSE, R²), and interactive confusion matrix heatmap explorer.
+- **👥 Student Behavioral Groups**: K-Means clustering analysis ($K=3$, Silhouette = 0.166, Davies-Bouldin = 1.869) and 2D PCA cluster map.
 
 ---
 
